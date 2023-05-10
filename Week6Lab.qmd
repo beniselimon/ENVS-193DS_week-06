@@ -1,0 +1,52 @@
+---
+title: "Week 6 in class code"
+author: "Benise Limon"
+format: html
+editor: visual
+---
+
+Install packages and load them into R
+
+```{r package-set-up}
+library(tidyverse) #general usage
+library(here) #organization
+library(naniar) #missing data visualization
+
+library(skimr) #quick glaces at data 
+library(plotly) #interactive plots 
+library(magick) #insert image
+library(NatParksPalettes)
+library(wesanderson)
+library(patchwork)
+```
+
+Load in whales data and create an object
+
+```{r loading-data}
+#create a new object called whales 
+#read in the whale data 
+whales <- read_csv(
+  here("data/Graywhale_watching_2007_2019.csv")
+  )
+#each row is an observation of x number of gray whales off of coal oil point 
+```
+
+Visualize/look at missing data
+
+```{r missing-data-vis}
+gg_miss_var(whales)
+```
+
+Use STR, list column names, or use skimr package to quickly glimpse at the data
+
+```{r}
+install.packages("skimr")
+```
+
+```{r}
+library(skimr)
+```
+
+```{r glimpse-of-data-using-skimr}
+skim(whales)
+```
